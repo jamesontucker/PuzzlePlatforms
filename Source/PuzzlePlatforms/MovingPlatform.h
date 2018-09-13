@@ -22,9 +22,17 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float speed = 20.f;
+
+	UPROPERTY(EditAnywhere, Category = "Movement", Meta = (MakeEditWidget = true))
+	FVector TargetLocation;
 	
 protected:
 
 	virtual void Tick(float DeltaTime) override;
+
+private:
+
+	FVector GlobalTargetLocation;
+	FVector GlobalStartLocation;
 	
 };
