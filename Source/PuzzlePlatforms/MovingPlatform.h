@@ -21,10 +21,13 @@ public:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
-	float speed = 20.f;
+	float speed = 100.f;
 
 	UPROPERTY(EditAnywhere, Category = "Movement", Meta = (MakeEditWidget = true))
 	FVector TargetLocation;
+
+	void AddActiveTrigger();
+	void RemoveActiveTrigger();
 	
 protected:
 
@@ -34,5 +37,8 @@ private:
 
 	FVector GlobalTargetLocation;
 	FVector GlobalStartLocation;
+
+	UPROPERTY(EditAnywhere)
+	int ActiveTriggers = 1;
 	
 };
