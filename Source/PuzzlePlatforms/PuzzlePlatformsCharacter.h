@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "PuzzlePlatformsGameInstance.h"
 #include "PuzzlePlatformsCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -30,6 +31,8 @@ public:
 	float BaseLookUpRate;
 
 protected:
+
+	void InGameMenu();
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();

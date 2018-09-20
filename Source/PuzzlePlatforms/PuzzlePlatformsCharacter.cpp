@@ -74,8 +74,16 @@ void APuzzlePlatformsCharacter::SetupPlayerInputComponent(class UInputComponent*
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &APuzzlePlatformsCharacter::OnResetVR);
+
+	PlayerInputComponent->BindAction("InGameMenu", IE_Pressed, this, &APuzzlePlatformsCharacter::InGameMenu);
 }
 
+void APuzzlePlatformsCharacter::InGameMenu()
+{
+	UPuzzlePlatformsGameInstance* aPuzzlePlatformGameInstance = Cast<UPuzzlePlatformsGameInstance>(this->GetGameInstance());
+	if (!ensure(aPuzzlePlatformGameInstance != nullptr)) return;
+	aPuzzlePlatformGameInstance->InGameLoadMenu();
+}
 
 void APuzzlePlatformsCharacter::OnResetVR()
 {
