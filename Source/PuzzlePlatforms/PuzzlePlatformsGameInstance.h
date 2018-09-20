@@ -28,10 +28,12 @@ public:
 	void InGameLoadMenu();
 	
 	UFUNCTION(Exec)
-	void Host();
+	void Host() override;
 
 	UFUNCTION(Exec)
-	void Join(const FString& Address);
+	void Join(const FString& Address) override;
+
+	virtual void LoadMainMenu() override;
 
 private:
 
